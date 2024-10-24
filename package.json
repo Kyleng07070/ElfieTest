@@ -1,0 +1,20 @@
+{
+    "name": "mobile-automation-framework",
+    "version": "1.0.0",
+    "description": "Mobile Automation Framework with WebdriverIO and Appium",
+    "scripts": {
+      "test": "wdio run ./wdio.conf.js",
+      "report": "allure generate allure-results --clean && allure open"
+    },
+    "dependencies": {
+      "@wdio/allure-reporter": "^8.x",
+      "@wdio/appium-service": "^8.x",
+      "@wdio/cli": "^8.x",
+      "@wdio/local-runner": "^8.x",
+      "@wdio/mocha-framework": "^8.x",
+      "@wdio/spec-reporter": "^8.x",
+      "allure-commandline": "^2.x",
+      "appium": "^2.x",
+      "chai": "^4.x"
+    }
+  }
