@@ -1,12 +1,12 @@
 import BasePage from './base.page';
 
 class ChromePage extends BasePage {
-    get searchBox() { return $('//input[@name="q"]'); }
-    get firstResult() { return $('(//div[@class="g"])[1]//a'); }
-    get elfieLogo() { return $('//img[@alt="Elfie Logo"]'); }
-    get hamburgerMenu() { return $('//button[@aria-label="Menu"]'); }
-    get closeButton() { return $('//button[@aria-label="Close"]'); }
-    get copyright() { return $('//div[contains(text(), "Copyright 2023 Elfie Pte. Ltd.")]'); }
+    get searchBox() { return $('//textarea[@name="q"]'); }
+    get firstResult() { return $('(//div[@class="g"])[1]//div[@class="g"]//a'); }
+    get elfieLogo() { return $('//img[@alt="Elfie Logotype"]'); }
+    get hamburgerMenu() { return $('//div[@aria-label="menu"]'); }
+    get closeButton() { return $('//div[contains(@class, "w--open")]'); }
+    get copyright() { return $('//div[contains(text(), "Copyright © 2024 Elfie Pte. Ltd.")]'); }
 
     async search(keyword) {
         await this.searchBox.setValue(keyword);
@@ -26,6 +26,7 @@ class ChromePage extends BasePage {
         await this.hamburgerMenu.click();
         await expect(this.closeButton).toBeDisplayed();
         await this.captureScreenshot('hamburger_menu');
+        await this.closeButton.click();
     }
 
     async verifyCopyrightAndCapture() {
